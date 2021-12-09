@@ -29,8 +29,6 @@ for values in path_list:
     print(script,indicator,args)
     if str(indicator).upper() == "SMA":
         sma.sma_buy_sell(a,args)
-        continue
     elif str(indicator).upper() == "MACD":
         macd.MACD_Strategy(a,args)
-        continue
 

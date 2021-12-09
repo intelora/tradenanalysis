@@ -5,11 +5,11 @@ import executor
 #SMA BUY SELL
 #Function for buy and sell signal
 
-def sma_buy_sell(data,values):
-    print("Starting SMA Analysis")
+def ema_buy_sell(data,values):
+    print("Starting EMA Analysis")
     signal1,signal2 = values
-    data["col1"] = ta.sma(data['close'],signal1)
-    data["col2"] = ta.sma(data['close'],signal2)
+    data["col1"] = ta.ema(data['close'],signal1)
+    data["col2"] = ta.ema(data['close'],signal2)
     signalBuy = []
     signalSell = []
     position = False 
@@ -34,7 +34,7 @@ def sma_buy_sell(data,values):
         else:
             signalBuy.append(np.nan)
             signalSell.append(np.nan)
-    print("Sucessfully Completed SMA Analysis")
+    print("Sucessfully Completed EMA Analysis")
     data['buy_signal_price'], data['sell_signal_price'] = pd.Series([signalBuy, signalSell])
     data["strategy_name"]="sma_{}_{}".format(signal1,signal2)
     data['indicator'] = "sma"

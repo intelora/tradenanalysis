@@ -1,6 +1,6 @@
 import pandas_ta as ta
 import numpy as np
-import db_connect
+import executor
 import pandas as pd
 
 def MACD_Strategy(df, risk):
@@ -43,24 +43,5 @@ def MACD_Strategy(df, risk):
     df['buy_signal_price'], df['sell_signal_price'] = pd.Series([MACD_Buy, MACD_Sell])
     df["strategy_name"]="macd_{}".format(risk)
     df['indicator'] = "macd"
-    new_df = clean_data(df,values=risk)
-    update_to_db(new_df)
+    executor.clean_data(df)
     
-def clean_data(data,values):
-    print("Cleaning the  new data")
-    a = data.dropna(subset=["buy_signal_price"])
-    b = data.dropna(subset=["sell_signal_price"])
-    x = a.append(b)
-    new_data = x.drop(labels=["open","close","high","low","index"],axis=1)
-    print("Cleaning completed")
-    return new_data
-    
-
-def update_to_db(data):
-    try:
-        con = db_connect.db_connect()
-        print("Updating to db")
-        data.to_sql("buy_sell_data",con,if_exists="replace",index=False)
-        print("Update completed")
-    except Exception as e:
-        print(e)

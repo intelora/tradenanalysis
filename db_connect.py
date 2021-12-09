@@ -24,3 +24,12 @@ def get_data_as_dataframe(ticker):
     except Exception as e:
         print(e,e.args)
         return 
+    
+def update_to_db(data):
+    try:
+        print("Updating results to database")
+        con = db_connect()
+        data.to_sql("buy_sell_data",con,if_exists="replace",index=False)
+        print("Update results to database : Completed")
+    except Exception as e:
+        print(e)
