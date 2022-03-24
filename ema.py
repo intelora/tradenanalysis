@@ -36,8 +36,8 @@ def ema_buy_sell(data,values):
             signalSell.append(np.nan)
     print("Sucessfully Completed EMA Analysis")
     data['buy_signal_price'], data['sell_signal_price'] = pd.Series([signalBuy, signalSell])
-    data["strategy_name"]="sma_{}_{}".format(signal1,signal2)
-    data['indicator'] = "sma"
+    data["strategy_name"]="ema_{}_{}".format(signal1,signal2)
+    data['indicator'] = "ema"
     executor.clean_data(data=data)
 
     

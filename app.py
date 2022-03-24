@@ -31,4 +31,5 @@ for values in path_list:
         sma.sma_buy_sell(a,args)
     elif str(indicator).upper() == "MACD":
         macd.MACD_Strategy(a,args)
-
+    elif str(indicator).upper() == "EMA":
+        ema.ema_buy_sell(a,args)

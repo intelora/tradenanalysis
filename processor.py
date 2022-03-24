@@ -15,9 +15,9 @@ def process(path_list):
         except KeyError:
             print(f"getting script {script}  from database")
             script_df = db_connect.get_data_as_dataframe(script)
-            existing_script[script] = script_df
+            existing_script[script] = script_df 
             print("No of rows and columns", script_df.shape)
-        print("Processing current strategy ", indicator)
+        print("Processing current strategy ",indicator)
         print(script,indicator,args)
         indicator_manager.calculate_for_indicator(script_df,indicator,args)        
 

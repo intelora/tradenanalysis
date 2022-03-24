@@ -3,7 +3,7 @@ import pandas as pd
 import processor
 
 # sample path
-path = r"C:\Users\user\Desktop\aswath\tradenanalysis\script.csv"
+path = r"E:\TradeAnalytics\tradenanalysis\script.csv"
 
 def readCSV(path):
     
@@ -19,4 +19,4 @@ if __name__=="__main__":
     # print("Starting Program")
     # path = r"{}".format(complete_path[1])
     print("Reading CSV")
-    readCSV(path)
+    readCSV(path) 

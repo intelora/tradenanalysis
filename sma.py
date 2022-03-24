@@ -13,13 +13,13 @@ def sma_buy_sell(data,values):
     signalBuy = []
     signalSell = []
     position = False 
-
     for i in range(len(data)):
         if data["col1"][i] > data["col2"][i]:
             if position == False :
                 signalBuy.append(data['close'][i])
                 signalSell.append(np.nan)
                 position = True
+                # print("buy",data["col1"][i])
             else:
                 signalBuy.append(np.nan)
                 signalSell.append(np.nan)
